@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .systemBackground
         onboardingContainerViewController.delegate = self
         
-        let vc1 = ViewController()
+        let vc1 = MainViewController()
         let vc2 = ListViewController()
       
         vc1.tabBarItem.image = UIImage(systemName: "newspaper")
@@ -33,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nc1 = UINavigationController(rootViewController: vc1)
         let nc2 = UINavigationController(rootViewController: vc2)
-
+        
+      //  tabBarController.tabBar.tintColor = .white
         tabBarController.viewControllers = [nc1, nc2]
         
         checkFirstLaunch()
