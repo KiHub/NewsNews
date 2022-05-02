@@ -21,6 +21,9 @@
 		0BAE1E62281FD37300C51CDF /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E61281FD37300C51CDF /* ListViewController.swift */; };
 		0BAE1E65281FDBA500C51CDF /* ListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E63281FDBA500C51CDF /* ListModel.xcdatamodeld */; };
 		0BAE1E67281FDD3800C51CDF /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E66281FDD3800C51CDF /* CoreDataManager.swift */; };
+		0BAE1E6B2820063B00C51CDF /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E6A2820063B00C51CDF /* Animation.swift */; };
+		0BAE1E6E2820076500C51CDF /* MainVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E6D2820076400C51CDF /* MainVCExtensions.swift */; };
+		0BAE1E70282008F200C51CDF /* ListVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E6F282008F200C51CDF /* ListVCExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		0BAE1E61281FD37300C51CDF /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0BAE1E64281FDBA500C51CDF /* ListModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListModel.xcdatamodel; sourceTree = "<group>"; };
 		0BAE1E66281FDD3800C51CDF /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		0BAE1E6A2820063B00C51CDF /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		0BAE1E6D2820076400C51CDF /* MainVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCExtensions.swift; sourceTree = "<group>"; };
+		0BAE1E6F282008F200C51CDF /* ListVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVCExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,7 @@
 				0BAE1E55281EF60600C51CDF /* Onboarding */,
 				0BAE1E54281EF5F200C51CDF /* Services */,
 				0BAE1E3A281ED97500C51CDF /* AppDelegate.swift */,
+				0BAE1E692820062A00C51CDF /* Utils */,
 				0BAE1E63281FDBA500C51CDF /* ListModel.xcdatamodeld */,
 				0BAE1E43281ED97700C51CDF /* Assets.xcassets */,
 				0BAE1E45281ED97700C51CDF /* LaunchScreen.storyboard */,
@@ -91,7 +98,6 @@
 			children = (
 				0BAE1E4E281EDC0A00C51CDF /* LocalState.swift */,
 				0BAE1E5B281EF85700C51CDF /* NetworkManager.swift */,
-				0BAE1E5F281F330D00C51CDF /* ColorConverter.swift */,
 				0BAE1E66281FDD3800C51CDF /* CoreDataManager.swift */,
 			);
 			path = Services;
@@ -129,6 +135,17 @@
 				0BAE1E5D281EF8EB00C51CDF /* Presenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0BAE1E692820062A00C51CDF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0BAE1E5F281F330D00C51CDF /* ColorConverter.swift */,
+				0BAE1E6A2820063B00C51CDF /* Animation.swift */,
+				0BAE1E6D2820076400C51CDF /* MainVCExtensions.swift */,
+				0BAE1E6F282008F200C51CDF /* ListVCExtensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +223,7 @@
 				0BAE1E60281F330D00C51CDF /* ColorConverter.swift in Sources */,
 				0BAE1E4F281EDC0A00C51CDF /* LocalState.swift in Sources */,
 				0BAE1E5E281EF8EB00C51CDF /* Presenter.swift in Sources */,
+				0BAE1E6E2820076500C51CDF /* MainVCExtensions.swift in Sources */,
 				0BAE1E3B281ED97500C51CDF /* AppDelegate.swift in Sources */,
 				0BAE1E67281FDD3800C51CDF /* CoreDataManager.swift in Sources */,
 				0BAE1E5C281EF85700C51CDF /* NetworkManager.swift in Sources */,
@@ -213,6 +231,8 @@
 				0BAE1E53281EDC3B00C51CDF /* OnboardingContainerViewControllerDelegate.swift in Sources */,
 				0BAE1E62281FD37300C51CDF /* ListViewController.swift in Sources */,
 				0BAE1E51281EDC2000C51CDF /* OnboardingViewController.swift in Sources */,
+				0BAE1E70282008F200C51CDF /* ListVCExtensions.swift in Sources */,
+				0BAE1E6B2820063B00C51CDF /* Animation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
