@@ -13,7 +13,7 @@ class ListViewController: UIViewController {
     var tableView = UITableView()
     var savedNewsToDisplay = [PostList]()
     let refreshControl = UIRefreshControl()
-    let converter = ColorConverter()
+  //  let converter = ColorConverter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class ListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        tableView.backgroundColor = converter.hexStringToUIColor(hex: "#212529")
+        tableView.backgroundColor = appBackGroundColor
         tableView.separatorStyle = .none
         
       //  tableView.tableFooterView = UIView()

@@ -24,6 +24,7 @@
 		0BAE1E6B2820063B00C51CDF /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E6A2820063B00C51CDF /* Animation.swift */; };
 		0BAE1E6E2820076500C51CDF /* MainVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E6D2820076400C51CDF /* MainVCExtensions.swift */; };
 		0BAE1E70282008F200C51CDF /* ListVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E6F282008F200C51CDF /* ListVCExtensions.swift */; };
+		0BAE1E7228200D5800C51CDF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E7128200D5800C51CDF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		0BAE1E6A2820063B00C51CDF /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		0BAE1E6D2820076400C51CDF /* MainVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCExtensions.swift; sourceTree = "<group>"; };
 		0BAE1E6F282008F200C51CDF /* ListVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVCExtensions.swift; sourceTree = "<group>"; };
+		0BAE1E7128200D5800C51CDF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				0BAE1E6A2820063B00C51CDF /* Animation.swift */,
 				0BAE1E6D2820076400C51CDF /* MainVCExtensions.swift */,
 				0BAE1E6F282008F200C51CDF /* ListVCExtensions.swift */,
+				0BAE1E7128200D5800C51CDF /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				0BAE1E5E281EF8EB00C51CDF /* Presenter.swift in Sources */,
 				0BAE1E6E2820076500C51CDF /* MainVCExtensions.swift in Sources */,
 				0BAE1E3B281ED97500C51CDF /* AppDelegate.swift in Sources */,
+				0BAE1E7228200D5800C51CDF /* Constants.swift in Sources */,
 				0BAE1E67281FDD3800C51CDF /* CoreDataManager.swift in Sources */,
 				0BAE1E5C281EF85700C51CDF /* NetworkManager.swift in Sources */,
 				0BAE1E5A281EF81500C51CDF /* Model.swift in Sources */,

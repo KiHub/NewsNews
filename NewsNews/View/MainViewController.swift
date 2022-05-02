@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     var tableView = UITableView()
     var newsToDisplay = [Post]()
     let refreshControl = UIRefreshControl()
-    let converter = ColorConverter()
+   // let converter = ColorConverter()
     let animation = Animation()
     
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
     func setup() {
         setupTableView()
         setupRefreshControl()
-        
+      
     }
     
     private func setupTableView() {
@@ -37,7 +37,7 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        tableView.backgroundColor = converter.hexStringToUIColor(hex: "#212529")
+        tableView.backgroundColor = appBackGroundColor
         tableView.separatorStyle = .none
       //  tableView.tableFooterView = UIView()
         tableView.translatesAutoresizingMaskIntoConstraints = false

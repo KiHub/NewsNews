@@ -21,7 +21,7 @@ class OnboardingContainerViewController: UIViewController {
         
         let closeButton = UIButton(type: .system)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.tintColor = .systemGray
+        closeButton.tintColor = appSecondColor
         closeButton.setTitle("Close", for: [])
         closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
         return closeButton
@@ -31,10 +31,10 @@ class OnboardingContainerViewController: UIViewController {
         let button = UIButton(type: .system)
         button.backgroundColor = .clear
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.borderColor = appSecondColor.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Get started", for: .normal)
-        button.setTitleColor(.gray, for: .normal)
+        button.setTitleColor(appSecondColor, for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 14
         button.addTarget(self, action: #selector(atartTapped), for: .touchUpInside)
@@ -86,7 +86,7 @@ class OnboardingContainerViewController: UIViewController {
         //MARK: - Turn off auto constaraints
         
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-
+        pageViewController.view.backgroundColor = appBackGroundColor
         pageViewController.setViewControllers([pages.first!], direction: .forward, animated: false, completion: nil)
         currentVC = pages.first!
     }

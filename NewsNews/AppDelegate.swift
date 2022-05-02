@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.backgroundColor = .systemBackground
+        window?.backgroundColor = appBackGroundColor
+        window?.overrideUserInterfaceStyle = .dark
         onboardingContainerViewController.delegate = self
         
         let vc1 = MainViewController()
@@ -29,13 +30,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vc1.tabBarItem.image = UIImage(systemName: "newspaper")
         vc2.tabBarItem.image = UIImage(systemName: "paperclip")
         
+        vc1.tabBarController?.tabBar.barTintColor = appBackGroundColor
+        vc2.tabBarController?.tabBar.barTintColor = appBackGroundColor
+        
         vc1.title = "News"
         vc2.title = "List"
         
         let nc1 = UINavigationController(rootViewController: vc1)
         let nc2 = UINavigationController(rootViewController: vc2)
-        
-      // tabBarController.tabBar.tintColor = .white
+      //  tabBarController.tabBar.barTintColor = appBackGroundColor
+        tabBarController.tabBar.tintColor = appMainColor
+        tabBarController.tabBar.unselectedItemTintColor = .lightGray
         tabBarController.viewControllers = [nc1, nc2]
         checkFirstLaunch()
         
