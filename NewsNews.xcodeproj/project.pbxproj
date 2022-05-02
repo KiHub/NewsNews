@@ -25,6 +25,8 @@
 		0BAE1E6E2820076500C51CDF /* MainVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E6D2820076400C51CDF /* MainVCExtensions.swift */; };
 		0BAE1E70282008F200C51CDF /* ListVCExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E6F282008F200C51CDF /* ListVCExtensions.swift */; };
 		0BAE1E7228200D5800C51CDF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E7128200D5800C51CDF /* Constants.swift */; };
+		0BAE1E74282021DC00C51CDF /* HeaderMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E73282021DC00C51CDF /* HeaderMainView.swift */; };
+		0BAE1E76282021F900C51CDF /* HeaderMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BAE1E75282021F900C51CDF /* HeaderMainView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		0BAE1E6D2820076400C51CDF /* MainVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCExtensions.swift; sourceTree = "<group>"; };
 		0BAE1E6F282008F200C51CDF /* ListVCExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVCExtensions.swift; sourceTree = "<group>"; };
 		0BAE1E7128200D5800C51CDF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0BAE1E73282021DC00C51CDF /* HeaderMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMainView.swift; sourceTree = "<group>"; };
+		0BAE1E75282021F900C51CDF /* HeaderMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderMainView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +89,8 @@
 				0BAE1E58281EF63C00C51CDF /* Presenter */,
 				0BAE1E55281EF60600C51CDF /* Onboarding */,
 				0BAE1E54281EF5F200C51CDF /* Services */,
-				0BAE1E3A281ED97500C51CDF /* AppDelegate.swift */,
 				0BAE1E692820062A00C51CDF /* Utils */,
+				0BAE1E3A281ED97500C51CDF /* AppDelegate.swift */,
 				0BAE1E63281FDBA500C51CDF /* ListModel.xcdatamodeld */,
 				0BAE1E43281ED97700C51CDF /* Assets.xcassets */,
 				0BAE1E45281ED97700C51CDF /* LaunchScreen.storyboard */,
@@ -127,6 +131,8 @@
 			children = (
 				0BAE1E3E281ED97500C51CDF /* MainViewController.swift */,
 				0BAE1E61281FD37300C51CDF /* ListViewController.swift */,
+				0BAE1E73282021DC00C51CDF /* HeaderMainView.swift */,
+				0BAE1E75282021F900C51CDF /* HeaderMainView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BAE1E47281ED97700C51CDF /* LaunchScreen.storyboard in Resources */,
+				0BAE1E76282021F900C51CDF /* HeaderMainView.xib in Resources */,
 				0BAE1E44281ED97700C51CDF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +233,7 @@
 				0BAE1E60281F330D00C51CDF /* ColorConverter.swift in Sources */,
 				0BAE1E4F281EDC0A00C51CDF /* LocalState.swift in Sources */,
 				0BAE1E5E281EF8EB00C51CDF /* Presenter.swift in Sources */,
+				0BAE1E74282021DC00C51CDF /* HeaderMainView.swift in Sources */,
 				0BAE1E6E2820076500C51CDF /* MainVCExtensions.swift in Sources */,
 				0BAE1E3B281ED97500C51CDF /* AppDelegate.swift in Sources */,
 				0BAE1E7228200D5800C51CDF /* Constants.swift in Sources */,

@@ -29,12 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
         vc1.tabBarItem.image = UIImage(systemName: "newspaper")
         vc2.tabBarItem.image = UIImage(systemName: "paperclip")
+
         
         vc1.tabBarController?.tabBar.barTintColor = appBackGroundColor
         vc2.tabBarController?.tabBar.barTintColor = appBackGroundColor
         
         vc1.title = "News"
-        vc2.title = "List"
+        vc2.title = "Reading list"
+        
         
         let nc1 = UINavigationController(rootViewController: vc1)
         let nc2 = UINavigationController(rootViewController: vc2)

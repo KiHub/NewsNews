@@ -12,10 +12,13 @@ enum NetworkError: Error {
     case decodingError
 }
 
+
 class NewsService {
     
+    var link = "https://hn.algolia.com/api/v1/search?tags=front_page"
+    
     func getNews(completion: @escaping (Result<[Post],NetworkError>) -> Void) {
-        guard let url = URL(string: "https://hn.algolia.com/api/v1/search?tags=front_page") else {return}
+        guard let url = URL(string: link) else {return}
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
                 completion(.failure(.serverError))

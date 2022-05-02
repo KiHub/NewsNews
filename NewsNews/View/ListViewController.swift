@@ -28,10 +28,11 @@ class ListViewController: UIViewController {
         downloadNewsFromList()
         setupTableView()
         setupRefreshControl()
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: appMainColor]
     }
 
     private func setupTableView() {
-        
+    
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)

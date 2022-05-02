@@ -46,7 +46,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
 
             }
             item.image = UIImage(systemName: "paperclip")
-            item.backgroundColor = converter.hexStringToUIColor(hex: "#95d5b2")
+            item.backgroundColor = appSecondColor
 
             let swipeActions = UISwipeActionsConfiguration(actions: [item])
         
@@ -72,10 +72,11 @@ extension MainViewController {
     
      func setupRefreshControl() {
         refreshControl.addTarget(self, action: #selector(refreshContent), for: .valueChanged)
-        refreshControl.tintColor = converter.hexStringToUIColor(hex: "#c77dff")
+        refreshControl.tintColor = appSecondColor
         tableView.refreshControl = refreshControl
     }
     @objc func refreshContent() {
+        
         tableView.reloadData()
         print("refresh")
         let dispatchTime = DispatchTime.now() + Double(0.5)

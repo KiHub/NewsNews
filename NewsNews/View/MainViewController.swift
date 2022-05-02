@@ -23,13 +23,26 @@ class MainViewController: UIViewController {
         
        
         setup()
-        newsPresenter.getNews()
+       
     }
     
     func setup() {
+        newsPresenter.getNews()
+        
         setupTableView()
+        setupHeaderView()
         setupRefreshControl()
+        setStatusBar()
+        navigationController?.navigationBar.isHidden = true
       
+    }
+    
+    private func setStatusBar() {
+        let statusbarSize = UIApplication.shared.statusBarFrame.size
+        let frame = CGRect(origin: .zero, size: statusbarSize)
+        let statusbarView = UIView(frame: frame)
+        statusbarView.backgroundColor = appMainColor
+        view.addSubview(statusbarView)
     }
     
     private func setupTableView() {
@@ -37,7 +50,7 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        tableView.backgroundColor = appBackGroundColor
+        tableView.backgroundColor = appMainColor
         tableView.separatorStyle = .none
       //  tableView.tableFooterView = UIView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -50,5 +63,16 @@ class MainViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    private func setupHeaderView() {
+        let header = HeaderMainView(frame: .zero)
+        
+        var size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        size.width = UIScreen.main.bounds.width
+        header.frame.size = size
+        
+        tableView.tableHeaderView = header
+    }
+
 }
 
