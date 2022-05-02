@@ -14,6 +14,11 @@ protocol NewsView: AnyObject {
     func setEmptyNews()
 }
 
+protocol SavedNewsView: AnyObject {
+    func setNews(news: [PostList])
+    func setEmptyNews()
+}
+
 class NewsPresenter {
 
     private let newsService: NewsService

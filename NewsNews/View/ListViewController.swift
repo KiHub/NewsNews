@@ -1,20 +1,20 @@
 //
-//  MainViewController.swift
+//  ListViewController.swift
 //  NewsNews
 //
-//  Created by  Mr.Ki on 01.05.2022.
+//  Created by  Mr.Ki on 02.05.2022.
 //
 
 import UIKit
 import SafariServices
 
-class MainViewController: UIViewController {
+class ListViewController: UIViewController {
     
-    lazy var newsPresenter = NewsPresenter(newsService: NewsService(), newsView: self)
+ //   lazy var newsPresenter = NewsPresenter(newsService: NewsService(), newsView: self)
     
     let cellId = "cell"
     var tableView = UITableView()
-    var newsToDisplay = [Post]()
+    var savedNewsToDisplay = [PostList]()
     let refreshControl = UIRefreshControl()
     let converter = ColorConverter()
     
@@ -23,7 +23,10 @@ class MainViewController: UIViewController {
         
        
         setup()
-        newsPresenter.getNews()
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("loaded"), object: nil, queue: nil) { _ in
+            self.downloadNewsFromList()
+        }
+      //  newsPresenter.getNews()
     }
     
 //    override func loadView() {
@@ -31,11 +34,24 @@ class MainViewController: UIViewController {
 //    }
     
     func setup() {
+        downloadNewsFromList()
         setupTableView()
         setupRefreshControl()
         
         
         
+    }
+    
+    private func downloadNewsFromList() {
+        CoreDataManager.shared.fetchNewsFromDataBase { [weak self] result in
+            switch result {
+            case .success(let news):
+                self?.savedNewsToDisplay = news
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     private func setupTableView() {
@@ -69,7 +85,7 @@ class MainViewController: UIViewController {
 }
 
 
-extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: cellId)
@@ -77,7 +93,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         cell.backgroundColor = converter.hexStringToUIColor(hex: "#212529")
         cell.textLabel?.textColor = converter.hexStringToUIColor(hex: "#95d5b2")
         cell.detailTextLabel?.textColor = converter.hexStringToUIColor(hex: "#c77dff")
-        let newsViewData = newsToDisplay[indexPath.row]
+        let newsViewData = savedNewsToDisplay[indexPath.row]
         cell.textLabel?.text = newsViewData.title
         cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.text = "◉\(String(newsViewData.points))"
@@ -86,11 +102,11 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsToDisplay.count
+        return savedNewsToDisplay.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let news = newsToDisplay[indexPath.row]
+        let news = savedNewsToDisplay[indexPath.row]
         guard let url = URL(string: news.url ?? "https://hn.algolia.com") else {return}
         let configuration = SFSafariViewController.Configuration()
         let safariViewController = SFSafariViewController(url: url, configuration: configuration)
@@ -100,12 +116,11 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let item = UIContextualAction(style: .normal, title: "Add to list") {  (contextualAction, view, boolValue) in
-               print("Paperclip tapped")
-            self.addNewsToList(indexPath: indexPath)
+        let item = UIContextualAction(style: .normal, title: "Delete") {  (contextualAction, view, boolValue) in
+               print("delete")
             
             }
-            item.image = UIImage(systemName: "paperclip")
+            item.image = UIImage(systemName: "trash")
             item.backgroundColor = converter.hexStringToUIColor(hex: "#95d5b2")
         
 
@@ -116,10 +131,10 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
-extension MainViewController: NewsView {
-    func setNews(news: [Post]) {
+extension ListViewController: SavedNewsView {
+    func setNews(news: [PostList]) {
         DispatchQueue.main.async {
-            self.newsToDisplay = news
+            self.savedNewsToDisplay = news
             self.tableView.reloadData()
         }
     }
@@ -131,7 +146,7 @@ extension MainViewController: NewsView {
     
 }
 
-extension MainViewController {
+extension ListViewController {
     
     private func setupRefreshControl() {
         //  refreshControl.tintColor = appColor
@@ -149,30 +164,3 @@ extension MainViewController {
     }
 }
 
-extension MainViewController {
-    
-    private func addNewsToList(indexPath: IndexPath) {
-        
-        CoreDataManager.shared.downloadNewsToDataBase(model: newsToDisplay[indexPath.row]) { result in
-            switch result {
-            case .success():
-                print("Downloaded to DB")
-                NotificationCenter.default.post(name: NSNotification.Name("loaded"), object: nil)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-//        DataPersistentManager.shared.downloadMovieToDataBase(model: movies[indexPath.row]) { result in
-//            switch result {
-//            case .success():
-//                print("Downloaded to DB")
-//                NotificationCenter.default.post(name: NSNotification.Name("loaded"), object: nil)
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//     //   print("Downloading \(movies[indexPath.row].title)")
-    }
-    
-}
