@@ -119,6 +119,17 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         let item = UIContextualAction(style: .normal, title: "Delete") {  (contextualAction, view, boolValue) in
                print("delete")
             
+            CoreDataManager.shared.deleteNewsFromDataBase(model: self.savedNewsToDisplay[indexPath.row]) { [weak self] result in
+                switch result {
+                case .success():
+                    print("Deleted from database")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                self?.savedNewsToDisplay.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
             }
             item.image = UIImage(systemName: "trash")
             item.backgroundColor = converter.hexStringToUIColor(hex: "#95d5b2")
