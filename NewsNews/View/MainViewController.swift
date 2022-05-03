@@ -15,20 +15,20 @@ class MainViewController: UIViewController {
     var tableView = UITableView()
     var newsToDisplay = [Post]()
     let refreshControl = UIRefreshControl()
-   // let converter = ColorConverter()
     let animation = Animation()
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
         setup()
        
     }
     
     func setup() {
+        newsPresenter.url = "https://hn.algolia.com/api/v1/search?tags=front_page"
         newsPresenter.getNews()
-        
         setupTableView()
         setupHeaderView()
         setupRefreshControl()
@@ -66,11 +66,9 @@ class MainViewController: UIViewController {
     
     private func setupHeaderView() {
         let header = HeaderMainView(frame: .zero)
-        
         var size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         size.width = UIScreen.main.bounds.width
         header.frame.size = size
-        
         tableView.tableHeaderView = header
     }
 

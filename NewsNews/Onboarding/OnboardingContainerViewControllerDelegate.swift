@@ -12,11 +12,11 @@ protocol OnboardingContainerViewControllerDelegate: AnyObject {
 }
 
 class OnboardingContainerViewController: UIViewController {
-
+    
     let pageViewController: UIPageViewController
     var pages = [UIViewController]()
     var currentVC: UIViewController
- 
+    
     private let closeButton: UIButton = {
         
         let closeButton = UIButton(type: .system)
@@ -66,7 +66,6 @@ class OnboardingContainerViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
-     //   style()
         layout()
         
     }
@@ -78,7 +77,7 @@ class OnboardingContainerViewController: UIViewController {
         view.addSubview(pageViewController.view)
         view.addSubview(closeButton)
         view.addSubview(startButton)
- 
+        
         pageViewController.didMove(toParent: self)
         
         //MARK: - Delegate
@@ -104,7 +103,7 @@ class OnboardingContainerViewController: UIViewController {
         
         let closeButtonConstraints = [
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: closeButton.trailingAnchor, multiplier: 4),
-        //    closeButton.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 2),
+            //    closeButton.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 2),
             closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 4)
         ]
         NSLayoutConstraint.activate(closeButtonConstraints)
@@ -112,42 +111,42 @@ class OnboardingContainerViewController: UIViewController {
         let startButtonConstraints = [
             startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            startButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150)
-           
+            startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
         ]
         NSLayoutConstraint.activate(startButtonConstraints)
-    
+        
+        
     }
     
 }
 
 // MARK: - UIPageViewControllerDataSource, swipe logic
 extension OnboardingContainerViewController: UIPageViewControllerDataSource {
-
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         return getPreviousViewController(from: viewController)
     }
-
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         return getNextViewController(from: viewController)
     }
-
+    
     private func getPreviousViewController(from viewController: UIViewController) -> UIViewController? {
         guard let index = pages.firstIndex(of: viewController), index - 1 >= 0 else { return nil }
         currentVC = pages[index - 1]
         return pages[index - 1]
     }
-
+    
     private func getNextViewController(from viewController: UIViewController) -> UIViewController? {
         guard let index = pages.firstIndex(of: viewController), index + 1 < pages.count else { return nil }
         currentVC = pages[index + 1]
         return pages[index + 1]
     }
-
+    
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return pages.count
     }
-
+    
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return pages.firstIndex(of: self.currentVC) ?? 0
     }

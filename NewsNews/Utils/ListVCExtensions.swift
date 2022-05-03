@@ -40,7 +40,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let item = UIContextualAction(style: .normal, title: "Delete") {  (contextualAction, view, boolValue) in
-               print("delete")
+            print("delete")
             
             CoreDataManager.shared.deleteNewsFromDataBase(model: self.savedNewsToDisplay[indexPath.row]) { [weak self] result in
                 switch result {
@@ -53,15 +53,15 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
             
-            }
-            item.image = UIImage(systemName: "trash")
-            item.backgroundColor = converter.hexStringToUIColor(hex: "#95d5b2")
-        
-
-            let swipeActions = UISwipeActionsConfiguration(actions: [item])
-        
-            return swipeActions
         }
+        item.image = UIImage(systemName: "trash")
+        item.backgroundColor = converter.hexStringToUIColor(hex: "#95d5b2")
+        
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [item])
+        
+        return swipeActions
+    }
     
 }
 
@@ -77,12 +77,11 @@ extension ListViewController: SavedNewsView {
         view.backgroundColor = .systemRed
     }
     
-    
 }
 
 extension ListViewController {
     
-     func downloadNewsFromList() {
+    func downloadNewsFromList() {
         CoreDataManager.shared.fetchNewsFromDataBase { [weak self] result in
             switch result {
             case .success(let news):
@@ -94,7 +93,7 @@ extension ListViewController {
         }
     }
     
-     func setupRefreshControl() {
+    func setupRefreshControl() {
         refreshControl.addTarget(self, action: #selector(refreshContent), for: .valueChanged)
         refreshControl.tintColor = converter.hexStringToUIColor(hex: "#c77dff")
         tableView.refreshControl = refreshControl

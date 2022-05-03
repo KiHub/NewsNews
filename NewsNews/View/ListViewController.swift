@@ -13,7 +13,6 @@ class ListViewController: UIViewController {
     var tableView = UITableView()
     var savedNewsToDisplay = [PostList]()
     let refreshControl = UIRefreshControl()
-  //  let converter = ColorConverter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +37,6 @@ class ListViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.backgroundColor = appBackGroundColor
         tableView.separatorStyle = .none
-        
-      //  tableView.tableFooterView = UIView()
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)

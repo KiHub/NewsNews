@@ -20,18 +20,20 @@ protocol SavedNewsView: AnyObject {
 }
 
 class NewsPresenter {
-
+    
     private let newsService: NewsService
     weak var newsView: NewsView?
-
+    
+    var url = ""
+    
     init(newsService: NewsService, newsView: NewsView) {
         self.newsService = newsService
         self.newsView = newsView
     }
-
+    
     func getNews(){
         
-        newsService.getNews { result in
+        newsService.getNews(url: url) { result in
             switch result {
             case .success(let news):
                 self.newsView?.setNews(news: news)
@@ -40,6 +42,6 @@ class NewsPresenter {
                 print(error.localizedDescription)
             }
         }
-
+        
     }
 }

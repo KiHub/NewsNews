@@ -29,29 +29,29 @@ class CoreDataManager {
         item.title = model.title
         item.points = Int64(model.points)
         item.url = model.url
-
+        
         
         
         do {
             try context.save()
             completion(.success(()))
         } catch {
-                completion(.failure(CoreDataErrors.failedToSave))
+            completion(.failure(CoreDataErrors.failedToSave))
             print(error.localizedDescription)
         }
     }
     
     func fetchNewsFromDataBase(completion : @escaping (Result<[PostList], Error>) -> Void) {
-   
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-            let context = appDelegate.persistentContainer.viewContext
         
-            let request: NSFetchRequest<PostList>
-            request = PostList.fetchRequest()
-           
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request: NSFetchRequest<PostList>
+        request = PostList.fetchRequest()
+        
         
         do {
-           let news = try context.fetch(request)
+            let news = try context.fetch(request)
             completion(.success(news))
         } catch {
             completion(.failure(CoreDataErrors.failedToFetchData))

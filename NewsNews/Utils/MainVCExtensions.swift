@@ -20,7 +20,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = newsViewData.title
         cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.text = "◉\(String(newsViewData.points))"
-        
         return cell
     }
     
@@ -35,24 +34,22 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         let safariViewController = SFSafariViewController(url: url, configuration: configuration)
         safariViewController.modalPresentationStyle = .fullScreen
         present(safariViewController, animated: true)
-        
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let item = UIContextualAction(style: .normal, title: "Add to list") {  (contextualAction, view, boolValue) in
-               print("Paperclip tapped")
+            print("Paperclip tapped")
             self.addNewsToList(indexPath: indexPath)
             self.animation.shake(view: view)
-
-            }
-            item.image = UIImage(systemName: "paperclip")
-            item.backgroundColor = appSecondColor
-
-            let swipeActions = UISwipeActionsConfiguration(actions: [item])
-        
-            return swipeActions
+            
         }
-    
+        item.image = UIImage(systemName: "paperclip")
+        item.backgroundColor = appSecondColor
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [item])
+        
+        return swipeActions
+    }
 }
 
 extension MainViewController: NewsView {
@@ -66,17 +63,21 @@ extension MainViewController: NewsView {
     func setEmptyNews() {
         view.backgroundColor = .systemRed
     }
+    
 }
 
 extension MainViewController {
     
-     func setupRefreshControl() {
+    func setupRefreshControl() {
         refreshControl.addTarget(self, action: #selector(refreshContent), for: .valueChanged)
         refreshControl.tintColor = appSecondColor
         tableView.refreshControl = refreshControl
     }
     @objc func refreshContent() {
         
+        newsPresenter.url == "https://hn.algolia.com/api/v1/search_by_date?tags=story" ?  (newsPresenter.url = "https://hn.algolia.com/api/v1/search?tags=front_page") : (newsPresenter.url = "https://hn.algolia.com/api/v1/search_by_date?tags=story")
+        
+        newsPresenter.getNews()
         tableView.reloadData()
         print("refresh")
         let dispatchTime = DispatchTime.now() + Double(0.5)
