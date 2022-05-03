@@ -192,7 +192,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0BAE1E32281ED97500C51CDF /* Build configuration list for PBXProject "NewsNews" */;
+			buildConfigurationList = 0BAE1E32281ED97500C51CDF /* Build configuration list for PBXProject "GeekNews" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -388,6 +388,7 @@
 				DEVELOPMENT_TEAM = 327B2F3V2J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsNews/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GeekNews;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -416,6 +417,7 @@
 				DEVELOPMENT_TEAM = 327B2F3V2J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NewsNews/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GeekNews;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -437,7 +439,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0BAE1E32281ED97500C51CDF /* Build configuration list for PBXProject "NewsNews" */ = {
+		0BAE1E32281ED97500C51CDF /* Build configuration list for PBXProject "GeekNews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0BAE1E49281ED97700C51CDF /* Debug */,
