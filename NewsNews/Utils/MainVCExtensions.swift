@@ -33,6 +33,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         let configuration = SFSafariViewController.Configuration()
         let safariViewController = SFSafariViewController(url: url, configuration: configuration)
         safariViewController.modalPresentationStyle = .fullScreen
+        safariViewController.preferredControlTintColor = appMainColor
+        safariViewController.preferredBarTintColor = appBackGroundColor
         present(safariViewController, animated: true)
     }
     
