@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B4210A9283D1546000469DE /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4210A8283D1546000469DE /* ModuleBuilder.swift */; };
+		0B4210AB283D3254000469DE /* PresenterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4210AA283D3254000469DE /* PresenterList.swift */; };
 		0BAE1E3B281ED97500C51CDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E3A281ED97500C51CDF /* AppDelegate.swift */; };
 		0BAE1E3F281ED97500C51CDF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E3E281ED97500C51CDF /* MainViewController.swift */; };
 		0BAE1E44281ED97700C51CDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BAE1E43281ED97700C51CDF /* Assets.xcassets */; };
@@ -16,7 +18,7 @@
 		0BAE1E53281EDC3B00C51CDF /* OnboardingContainerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E52281EDC3B00C51CDF /* OnboardingContainerViewControllerDelegate.swift */; };
 		0BAE1E5A281EF81500C51CDF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E59281EF81500C51CDF /* Model.swift */; };
 		0BAE1E5C281EF85700C51CDF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E5B281EF85700C51CDF /* NetworkManager.swift */; };
-		0BAE1E5E281EF8EB00C51CDF /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E5D281EF8EB00C51CDF /* Presenter.swift */; };
+		0BAE1E5E281EF8EB00C51CDF /* PresenterMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E5D281EF8EB00C51CDF /* PresenterMain.swift */; };
 		0BAE1E60281F330D00C51CDF /* ColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E5F281F330D00C51CDF /* ColorConverter.swift */; };
 		0BAE1E62281FD37300C51CDF /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E61281FD37300C51CDF /* ListViewController.swift */; };
 		0BAE1E65281FDBA500C51CDF /* ListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BAE1E63281FDBA500C51CDF /* ListModel.xcdatamodeld */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B4210A8283D1546000469DE /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		0B4210AA283D3254000469DE /* PresenterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterList.swift; sourceTree = "<group>"; };
 		0BAE1E37281ED97500C51CDF /* NewsNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BAE1E3A281ED97500C51CDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BAE1E3E281ED97500C51CDF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -41,7 +45,7 @@
 		0BAE1E52281EDC3B00C51CDF /* OnboardingContainerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewControllerDelegate.swift; sourceTree = "<group>"; };
 		0BAE1E59281EF81500C51CDF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0BAE1E5B281EF85700C51CDF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		0BAE1E5D281EF8EB00C51CDF /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		0BAE1E5D281EF8EB00C51CDF /* PresenterMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterMain.swift; sourceTree = "<group>"; };
 		0BAE1E5F281F330D00C51CDF /* ColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConverter.swift; sourceTree = "<group>"; };
 		0BAE1E61281FD37300C51CDF /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0BAE1E64281FDBA500C51CDF /* ListModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListModel.xcdatamodel; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 		0BAE1E39281ED97500C51CDF /* NewsNews */ = {
 			isa = PBXGroup;
 			children = (
+				0B4210A8283D1546000469DE /* ModuleBuilder.swift */,
 				0BAE1E56281EF62800C51CDF /* Model */,
 				0BAE1E57281EF63200C51CDF /* View */,
 				0BAE1E58281EF63C00C51CDF /* Presenter */,
@@ -140,7 +145,8 @@
 		0BAE1E58281EF63C00C51CDF /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				0BAE1E5D281EF8EB00C51CDF /* Presenter.swift */,
+				0BAE1E5D281EF8EB00C51CDF /* PresenterMain.swift */,
+				0B4210AA283D3254000469DE /* PresenterList.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -232,11 +238,13 @@
 				0BAE1E3F281ED97500C51CDF /* MainViewController.swift in Sources */,
 				0BAE1E60281F330D00C51CDF /* ColorConverter.swift in Sources */,
 				0BAE1E4F281EDC0A00C51CDF /* LocalState.swift in Sources */,
-				0BAE1E5E281EF8EB00C51CDF /* Presenter.swift in Sources */,
+				0BAE1E5E281EF8EB00C51CDF /* PresenterMain.swift in Sources */,
+				0B4210A9283D1546000469DE /* ModuleBuilder.swift in Sources */,
 				0BAE1E74282021DC00C51CDF /* HeaderMainView.swift in Sources */,
 				0BAE1E6E2820076500C51CDF /* MainVCExtensions.swift in Sources */,
 				0BAE1E3B281ED97500C51CDF /* AppDelegate.swift in Sources */,
 				0BAE1E7228200D5800C51CDF /* Constants.swift in Sources */,
+				0B4210AB283D3254000469DE /* PresenterList.swift in Sources */,
 				0BAE1E67281FDD3800C51CDF /* CoreDataManager.swift in Sources */,
 				0BAE1E5C281EF85700C51CDF /* NetworkManager.swift in Sources */,
 				0BAE1E5A281EF81500C51CDF /* Model.swift in Sources */,

@@ -7,13 +7,16 @@
 
 import Foundation
 
+protocol NewsServiceProtocol {
+    func getNews(url: String, completion: @escaping (Result<[Post],NetworkError>) -> Void)
+}
+
 enum NetworkError: Error {
     case serverError
     case decodingError
 }
 
-class NewsService {
-    
+class NewsService: NewsServiceProtocol {
     
     func getNews(url: String, completion: @escaping (Result<[Post],NetworkError>) -> Void) {
         guard let url = URL(string: url) else {return}

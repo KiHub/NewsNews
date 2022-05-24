@@ -8,7 +8,8 @@
 import UIKit
 
 class ListViewController: UIViewController {
-
+    
+    var savedNewsPresenter: ListPresenterProtocol!
     let cellId = "cell"
     var tableView = UITableView()
     var savedNewsToDisplay = [PostList]()
@@ -19,25 +20,24 @@ class ListViewController: UIViewController {
         
         setup()
         NotificationCenter.default.addObserver(forName: NSNotification.Name("loaded"), object: nil, queue: nil) { _ in
-            self.downloadNewsFromList()
+            self.savedNewsPresenter.downloadNewsFromList()
         }
     }
-
+    
     func setup() {
-        downloadNewsFromList()
+        savedNewsPresenter.downloadNewsFromList()
         setupTableView()
         setupRefreshControl()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: appMainColor]
     }
-
-    private func setupTableView() {
     
+    private func setupTableView() {
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.backgroundColor = appBackGroundColor
         tableView.separatorStyle = .none
-        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         
@@ -48,5 +48,4 @@ class ListViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
 }

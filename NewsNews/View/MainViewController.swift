@@ -9,32 +9,29 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    lazy var newsPresenter = NewsPresenter(newsService: NewsService(), newsView: self)
+    var newsPresenter: NewsPresenterProtocol!
     
     let cellId = "cell"
     var tableView = UITableView()
     var newsToDisplay = [Post]()
     let refreshControl = UIRefreshControl()
     let animation = Animation()
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
-       
+        
     }
     
     func setup() {
-        newsPresenter.url = "https://hn.algolia.com/api/v1/search?tags=front_page"
-        newsPresenter.getNews()
+        newsPresenter.getNews(url: url)
         setupTableView()
         setupHeaderView()
         setupRefreshControl()
         setStatusBar()
         navigationController?.navigationBar.isHidden = true
-      
+        
     }
     
     private func setStatusBar() {
@@ -52,7 +49,6 @@ class MainViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.backgroundColor = appMainColor
         tableView.separatorStyle = .none
-      //  tableView.tableFooterView = UIView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         
@@ -71,6 +67,6 @@ class MainViewController: UIViewController {
         header.frame.size = size
         tableView.tableHeaderView = header
     }
-
+    
 }
 

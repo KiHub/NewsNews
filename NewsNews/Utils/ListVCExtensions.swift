@@ -81,18 +81,6 @@ extension ListViewController: SavedNewsView {
 
 extension ListViewController {
     
-    func downloadNewsFromList() {
-        CoreDataManager.shared.fetchNewsFromDataBase { [weak self] result in
-            switch result {
-            case .success(let news):
-                self?.savedNewsToDisplay = news
-                self?.tableView.reloadData()
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
     func setupRefreshControl() {
         refreshControl.addTarget(self, action: #selector(refreshContent), for: .valueChanged)
         refreshControl.tintColor = converter.hexStringToUIColor(hex: "#c77dff")

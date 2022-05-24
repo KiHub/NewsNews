@@ -56,10 +56,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension MainViewController: NewsView {
     func setNews(news: [Post]) {
-        DispatchQueue.main.async {
             self.newsToDisplay = news
             self.tableView.reloadData()
-        }
     }
     
     func setEmptyNews() {
@@ -76,10 +74,10 @@ extension MainViewController {
         tableView.refreshControl = refreshControl
     }
     @objc func refreshContent() {
+
+         url == "https://hn.algolia.com/api/v1/search_by_date?tags=story" ?  (url = "https://hn.algolia.com/api/v1/search?tags=front_page") : (url = "https://hn.algolia.com/api/v1/search_by_date?tags=story")
         
-        newsPresenter.url == "https://hn.algolia.com/api/v1/search_by_date?tags=story" ?  (newsPresenter.url = "https://hn.algolia.com/api/v1/search?tags=front_page") : (newsPresenter.url = "https://hn.algolia.com/api/v1/search_by_date?tags=story")
-        
-        newsPresenter.getNews()
+        newsPresenter.getNews(url: url)
         tableView.reloadData()
         print("refresh")
         let dispatchTime = DispatchTime.now() + Double(0.5)

@@ -10,12 +10,14 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     let onboardingContainerViewController = OnboardingContainerViewController()
+    let mainVC = ModuleBuilder.createMainModule()
+    let listVC = ModuleBuilder.createSecondModule()
     let tabBarController = UITabBarController()
     
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -24,12 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.overrideUserInterfaceStyle = .dark
         onboardingContainerViewController.delegate = self
         
-        let vc1 = MainViewController()
-        let vc2 = ListViewController()
-      
+        
+        let vc1 = mainVC
+        let vc2 = listVC
+        
         vc1.tabBarItem.image = UIImage(systemName: "newspaper")
         vc2.tabBarItem.image = UIImage(systemName: "paperclip")
-
+        
         
         vc1.tabBarController?.tabBar.barTintColor = appBackGroundColor
         vc2.tabBarController?.tabBar.barTintColor = appBackGroundColor
@@ -40,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nc1 = UINavigationController(rootViewController: vc1)
         let nc2 = UINavigationController(rootViewController: vc2)
-      //  tabBarController.tabBar.barTintColor = appBackGroundColor
+        //  tabBarController.tabBar.barTintColor = appBackGroundColor
         tabBarController.tabBar.tintColor = appMainColor
         tabBarController.tabBar.unselectedItemTintColor = .lightGray
         tabBarController.viewControllers = [nc1, nc2]
@@ -50,30 +53,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-//
-//
-//    class ListViewController: UIViewController {
-//        override func viewDidLoad() {
-//            title = "List"
-//            view.backgroundColor = .green
-//        }
-//    }
     
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentContainer(name: "ListModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -87,24 +82,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
-
-   
+    
+    
 }
 
 extension AppDelegate {

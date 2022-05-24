@@ -53,7 +53,6 @@ extension OnboardingViewController {
         imageView.layer.shadowOffset = .init(width: 6, height: 3)
         imageView.layer.shadowRadius = 15
         
-        
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.textColor = appMainColor
